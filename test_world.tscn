@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpfttix4slxor"]
+
+[ext_resource type="PackedScene" uid="uid://dscr8cwt53g3w" path="res://map.tscn" id="1_biebq"]
+[ext_resource type="Script" path="res://test_world.gd" id="1_lqb6n"]
+[ext_resource type="Script" path="res://testing_script.gd" id="2_xn1r0"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="4_s00bg"]
+[ext_resource type="PackedScene" uid="uid://dy7qk4nr44vf0" path="res://player.tscn" id="5_kcidd"]
+
+[node name="Test World" type="Node2D"]
+script = ExtResource("1_lqb6n")
+
+[node name="Map" parent="." instance=ExtResource("1_biebq")]
+
+[node name="Node2D" type="Node2D" parent="."]
+process_mode = 4
+script = ExtResource("2_xn1r0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_s00bg")
+
+[node name="Player" parent="." instance=ExtResource("5_kcidd")]
+position = Vector2(465, 26)
+collision_mask = 5

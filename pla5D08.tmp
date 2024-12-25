@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://dy7qk4nr44vf0"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_7eqbj"]
+[ext_resource type="Texture2D" uid="uid://drmq32u65csno" path="res://icon.svg" id="1_gus0n"]
+[ext_resource type="Script" path="res://movement.gd" id="3_lnknk"]
+[ext_resource type="Script" path="res://aiming.gd" id="4_urt3k"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aq065"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3yfr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wr4vb"]
+radius = 0.99
+height = 5.305
+
+[node name="Player" type="RigidBody2D"]
+position = Vector2(0, -15)
+collision_layer = 4
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_aq065")
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_7eqbj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_x3yfr")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-4.76837e-07, 9.53674e-07)
+scale = Vector2(10.101, 5.65504)
+mesh = SubResource("CapsuleMesh_wr4vb")
+texture = ExtResource("1_gus0n")
+
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="PlayerStates" type="Node" parent="."]
+
+[node name="Movement" type="Node" parent="PlayerStates"]
+script = ExtResource("3_lnknk")
+
+[node name="Aiming" type="Node" parent="PlayerStates"]
+script = ExtResource("4_urt3k")

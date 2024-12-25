@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://bbc8dv60pef66"]
+
+[node name="Circle" type="Polygon2D"]
+polygon = PackedVector2Array(0, -50, 36, -37, 50, 0, 41, 37, 0, 50, -43, 37, -50, 0, -39, -37)

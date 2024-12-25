@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://tpv41vx42ful"]
+
+[ext_resource type="Script" path="res://static_polygon_body_2d.gd" id="1_lsnva"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3m6hk"]
+
+[node name="StaticPolygonBody2D" type="StaticBody2D"]
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_3m6hk")
+script = ExtResource("1_lsnva")
+polygon_points = PackedVector2Array(800, 581, 1025, 576, 1064, 452, 1102, 408, 1055, 396, 1057, 319, 968, 329, 906, 408, 745.348, 432, 728.809, 372, 738.157, 255, 682.786, 273, 662, 326, 624.539, 334, 573.483, 250, 493, 285, 446.921, 360, 505, 459, 433.978, 529, 420.315, 398, 374.292, 424, 352.719, 538, 256.36, 535, 214.652, 484, 172.225, 432, 206.022, 378, 206, 295, 236.225, 252, 215.371, 182, 270.022, 130, 217.528, 128, 126.921, 138, 64.36, 217, 32, 290, 65.079, 361, 91.685, 403, 109.663, 455, 84.494, 489, 1.079, 479, 19.056, 532, 83, 571)

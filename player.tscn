@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://dy7qk4nr44vf0"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_7eqbj"]
+[ext_resource type="Texture2D" uid="uid://drmq32u65csno" path="res://icon.svg" id="1_gus0n"]
+[ext_resource type="Script" path="res://movement.gd" id="3_lnknk"]
+[ext_resource type="Script" path="res://aiming.gd" id="4_urt3k"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aq065"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3yfr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wr4vb"]
+radius = 0.99
+height = 5.305
+
+[node name="Player" type="RigidBody2D"]
+position = Vector2(0, -15)
+collision_layer = 4
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_aq065")
+can_sleep = false
+lock_rotation = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_7eqbj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_x3yfr")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-4.76837e-07, 9.53674e-07)
+scale = Vector2(10.101, 5.65504)
+mesh = SubResource("CapsuleMesh_wr4vb")
+texture = ExtResource("1_gus0n")
+
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="PlayerStates" type="Node" parent="."]
+
+[node name="Movement" type="Node" parent="PlayerStates"]
+script = ExtResource("3_lnknk")
+
+[node name="Aiming" type="Node" parent="PlayerStates"]
+script = ExtResource("4_urt3k")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -26.0
+offset_right = 20.0
+offset_bottom = 14.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+modulate = Color(0.286275, 0.929412, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_right = 16.0
+offset_bottom = 11.0
+grow_horizontal = 2
+step = 0.001
+rounded = true
+show_percentage = false
